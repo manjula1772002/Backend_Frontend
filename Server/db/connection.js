@@ -18,6 +18,6 @@ try {
   console.error("Failed to connect to MongoDB", connectionString);
 }
 
-let db = conn.db("user");
+let db = conn.db("Server");
 
 export default db;

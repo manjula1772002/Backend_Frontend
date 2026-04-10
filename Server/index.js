@@ -14,11 +14,11 @@ app.get("/", (req, res) => {
 });
 app.get("/user",async(req,res) => {
   try{
-    const moives=await db.collection("user").find().toArray();
-    res.json(moives);
+    const users=await db.collection("user").find().toArray();
+    res.json(users);
   }
   catch{
-    res.status(500).json({error:"failed to fecth moives"})
+    res.status(500).json({error:"failed to fecth users"})
   }
 });
 
@@ -36,7 +36,7 @@ if(!name||!email||!password){
 }
 try{
   await db
-     .collection("users")
+     .collection("user")
       .insertOne({ name, email, password: bcrypt.hashSync(password, 10) })
 res.json({
     message: `User ${name} registered successfully with email ${email}`,
